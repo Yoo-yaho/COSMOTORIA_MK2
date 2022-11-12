@@ -50,6 +50,9 @@ TagManager:
   - name: Non-Tile
     uniqueID: 862724529
     locked: 0
+  - name: NPC
+    uniqueID: 698496739
+    locked: 0
   - name: Chr
     uniqueID: 2544605405
     locked: 0
