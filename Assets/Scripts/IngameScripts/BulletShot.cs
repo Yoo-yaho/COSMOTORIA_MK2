@@ -89,6 +89,26 @@ public class BulletShot : MonoBehaviour
                 Destroy(BulletCR, 1.0f);
                 Destroy(BulletCL, 1.0f);
             }
+            else if (Power == 4)
+            {
+                GameObject BulletL = Instantiate(bullet1, transform.position + Vector3.left * 0.5f, transform.rotation);
+                GameObject BulletR = Instantiate(bullet1, transform.position + Vector3.right * 0.5f, transform.rotation);
+                GameObject BulletCR = Instantiate(bullet1, transform.position + Vector3.right * 0.5f, Quaternion.Euler(new Vector3(0, 0, -45)));
+                GameObject BulletCL = Instantiate(bullet1, transform.position + Vector3.left * 0.5f, Quaternion.Euler(new Vector3(0, 0, 45)));
+                Rigidbody2D BrigidL = BulletL.GetComponent<Rigidbody2D>();
+                Rigidbody2D BrigidR = BulletR.GetComponent<Rigidbody2D>();
+                Rigidbody2D BrigidCR = BulletCR.GetComponent<Rigidbody2D>();
+                Rigidbody2D BrigidCL = BulletCL.GetComponent<Rigidbody2D>();
+                BrigidL.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                BrigidR.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                BrigidCR.AddForce(Vector2.one * 10, ForceMode2D.Impulse);
+                BrigidCL.AddForce((Vector2.up + Vector2.left) * 10, ForceMode2D.Impulse);
+
+                Destroy(BulletL, 1.0f);
+                Destroy(BulletR, 1.0f);
+                Destroy(BulletCR, 1.0f);
+                Destroy(BulletCL, 1.0f);
+            }
 
             ShootDelay = 0;
         }
