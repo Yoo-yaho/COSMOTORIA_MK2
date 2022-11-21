@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class InGameManager : MonoBehaviour
 {
     public float textSpeed;
-    public bool isAction = false;
+    public bool isAction;
     public int talkIndex;
 
+    public QuestManager questManager;
     public Image portraitImage;
     public TalkManager talkManager;
     public Text talkText;
@@ -20,8 +21,14 @@ public class InGameManager : MonoBehaviour
         talkPanel.SetActive(isAction);
     }
 
+    private void Start()
+    {
+        Debug.Log(questManager.CheckQuest());
+    }
+
     public void Scan(GameObject scanObj)
-    {      
+    {
+        isAction = true;
         scanObject = scanObj;
         ObjectData objectData = scanObject.GetComponent<ObjectData>();
         Talk(objectData.id, objectData.isNpc);
@@ -31,13 +38,15 @@ public class InGameManager : MonoBehaviour
 
     void Talk(int id, bool isNpc)
     {
-        string talkData = talkManager.GetTalk(id, talkIndex);
+        int questTalkIndex = questManager.GetQuestTalkIndex(id);
+        string talkData = talkManager.GetTalk(id + questTalkIndex, talkIndex);
 
         if (talkData == null)
         {
-            //talkPanel.GetComponent<Animator>().SetTrigger("isText");
-            isAction = false;
+            //talkPanel.GetComponent<Animator>().SetTrigger("isText");          
             talkIndex = 0;
+            isAction = false;
+            Debug.Log(questManager.CheckQuest(id));
             return;
         }
 
@@ -59,10 +68,5 @@ public class InGameManager : MonoBehaviour
 
         isAction = true;
         talkIndex++;
-    }
-
-    public void TalkEnd()
-    {
-        isAction = false;
     }
 }
