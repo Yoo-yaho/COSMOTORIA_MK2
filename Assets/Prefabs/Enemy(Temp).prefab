@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 4920575400824855716}
   - component: {fileID: 3019668189629315583}
   - component: {fileID: 1819419130457245977}
+  - component: {fileID: 6245541962352259130}
+  - component: {fileID: 1514788311932361313}
   m_Layer: 0
   m_Name: Enemy(Temp)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +100,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 7
+  HP: 5
+  EnemyHitEffect: {fileID: 1514788311932361313}
+--- !u!58 &6245541962352259130
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862352397244952979}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.75
+--- !u!114 &1514788311932361313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862352397244952979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd0a959feb6cfcf4b894d3eb4da443b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recent_Delay: 0
