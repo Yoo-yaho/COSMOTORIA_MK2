@@ -81,7 +81,7 @@ public class PlayerAction : MonoBehaviour
 
 
         // Ray
-        Debug.DrawRay(rigidBody.position, dirVec * 0.7f, new Color(1, 0, 0));
+        Debug.DrawRay(rigidBody.position, dirVec * 0.8f, new Color(1, 0, 0));
         RaycastHit2D rayHit = Physics2D.Raycast(rigidBody.position, dirVec, 0.7f, 
             LayerMask.GetMask("Object"));
 

@@ -3,31 +3,36 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - LevelBounds
+  - FX
+  - Enemy
+  - World
+  - NoMask
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Object
+  - 
   - Water
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Obstacles
+  - Ground
+  - Player
+  - ObstaclesDoors
+  - NoPathfinding
+  - Enemies
+  - NoCollisions
+  - Hole
+  - MovingPlatform
+  - FallingPlatform
+  - Projectile
+  - Camera1
+  - Camera2
+  - Camera3
+  - Camera4
   - 
   - 
   - 
@@ -41,24 +46,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Grass
-    uniqueID: 1196858009
+  - name: Background
+    uniqueID: 1798043625
     locked: 0
-  - name: GrassUp
-    uniqueID: 983354261
+  - name: Water
+    uniqueID: 1161218153
     locked: 0
-  - name: Non-Tile
-    uniqueID: 862724529
+  - name: Floor
+    uniqueID: 2296623839
     locked: 0
-  - name: NPC
-    uniqueID: 698496739
+  - name: Object
+    uniqueID: 1603220759
     locked: 0
-  - name: Chr
-    uniqueID: 2544605405
+  - name: Object1
+    uniqueID: 605917395
     locked: 0
-  - name: Enemy
-    uniqueID: 4149780449
+  - name: Object2
+    uniqueID: 991482227
     locked: 0
-  - name: Bullet
-    uniqueID: 1903372471
+  - name: Characters
+    uniqueID: 47421343
+    locked: 0
+  - name: Above
+    uniqueID: 961700441
     locked: 0
