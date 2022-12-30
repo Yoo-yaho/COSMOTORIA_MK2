@@ -16,11 +16,6 @@ public class InGameManager : MonoBehaviour
     public GameObject scanObject;
     public GameObject talkPanel;
 
-    public void Awake()
-    {
-        talkPanel.SetActive(isAction);
-    }
-
     private void Start()
     {
         Debug.Log(questManager.CheckQuest());
@@ -28,12 +23,19 @@ public class InGameManager : MonoBehaviour
 
     public void Scan(GameObject scanObj)
     {
-        isAction = true;
-        scanObject = scanObj;
-        ObjectData objectData = scanObject.GetComponent<ObjectData>();
-        Talk(objectData.id, objectData.isNpc);
+        if (isAction)
+        {
+            isAction = false;
+        }
+        else
+        {
+            isAction = true;
+            scanObject = scanObj;
+            ObjectData objectData = scanObject.GetComponent<ObjectData>();
+            Talk(objectData.id, objectData.isNpc);
+        }
 
-        talkPanel.SetActive(isAction);
+        talkPanel.SetActive(isAction);     
     }
 
     void Talk(int id, bool isNpc)
@@ -43,7 +45,6 @@ public class InGameManager : MonoBehaviour
 
         if (talkData == null)
         {
-            //talkPanel.GetComponent<Animator>().SetTrigger("isText");          
             talkIndex = 0;
             isAction = false;
             Debug.Log(questManager.CheckQuest(id));
@@ -52,15 +53,13 @@ public class InGameManager : MonoBehaviour
 
         if (isNpc)
         {
-            //talkPanel.GetComponent<Animator>().SetTrigger("isText");
             talkText.text = talkData.Split(':')[0];
 
             portraitImage.sprite = talkManager.GetPortrait(id, int.Parse(talkData.Split(':')[1]));
             portraitImage.color = new Color(1, 1, 1, 1);
-        } 
+        }
         else
         {
-            //talkPanel.GetComponent<Animator>().SetTrigger("isText");
             talkText.text = talkData;
 
             portraitImage.color = new Color(1, 1, 1, 0);
